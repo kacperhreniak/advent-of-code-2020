@@ -1,3 +1,5 @@
+package day1.part2
+
 import java.io.File
 
 private const val EXPECTED_SUM = 2020

@@ -1,9 +1,11 @@
+package day1.part1
+
 import java.io.File
 
 private const val EXPECTED_SUM = 2020
 private const val FILENAME = "src/day1/main/input.txt"
 
-fun main() {
+private fun main() {
     val inputs = readItems(FILENAME)
     val requiredItems = findFirstTwoItemsSumTo2020(inputs)
     val result = calculateResult(requiredItems)

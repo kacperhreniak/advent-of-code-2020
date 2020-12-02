@@ -1,4 +1,4 @@
-package day2.part1
+package day2
 
 class PasswordConditionExtractor {
     private val rangeExtractor = RangeExtractor()
@@ -9,16 +9,17 @@ class PasswordConditionExtractor {
         val rangeData = rangeExtractor.extract(separatedData[RANGE_INDEX])
 
         return PasswordDetails(
-            rangeDetials = rangeData,
-            text = expectedText
+            firstValue = rangeData.first,
+            secondValue = rangeData.second,
+            expectedChar = expectedText.first()
         )
     }
 
     private class RangeExtractor {
-        fun extract(data: String): RangeDetials = data.split(RANGE_SEPARATOR).run {
-            RangeDetials(
-                minValue = get(MIN_VALUE_INDEX).toInt(),
-                maxValue = get(MAX_VALUE_INDEX).toInt()
+        fun extract(data: String): Pair<Int, Int> = data.split(RANGE_SEPARATOR).run {
+            Pair(
+                first = get(MIN_VALUE_INDEX).toInt(),
+                second = get(MAX_VALUE_INDEX).toInt()
             )
         }
 
